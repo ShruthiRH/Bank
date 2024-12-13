@@ -45,7 +45,6 @@ class Card(models.Model):
     card_number = models.CharField(max_length=128)
     expiry_date = models.CharField(max_length=5) 
     cvv = models.CharField(max_length=128)
-    pin_code = models.CharField(max_length=128)
     status = models.CharField(max_length=20, choices=STATUS_CHOICES)
     date_issued = models.DateTimeField(auto_now_add=True)
 

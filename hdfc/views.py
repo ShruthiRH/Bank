@@ -90,3 +90,40 @@ def make_transactions(request):
     ngo_account.save()
 
     return JsonResponse({'message': 'Transaction Completed', 'user_balance' : user_account.account_balance}, status = 200)
+
+
+import json
+from cryptography.hazmat.primitives import hashes
+from cryptography.hazmat.primitives.asymmetric import rsa, padding
+from cryptography.hazmat.primitives import serialization
+from django.conf import settings
+
+
+def load_public_key():
+    # Read publickeys.json
+    with open('publickeys.json', 'r') as f:
+        keys_data = json.load(f)
+    
+    # Choose the public key (keypair_1, keypair_2, etc.)
+    public_key_str = keys_data.get("payment processor")
+    
+    # Load the public key into an object
+    public_key = serialization.load_pem_public_key(public_key_str.encode('utf-8'))
+
+    print(public_key)
+    return public_key
+
+
+def encrypt_message(message, public_key):
+    # Encrypt the message using RSA and the public key
+    encrypted = public_key.encrypt(
+        message.encode('utf-8'),
+        padding.OAEP(
+            mgf=padding.MGF1(algorithm=hashes.SHA256()),
+            algorithm=hashes.SHA256(),
+            label=None
+        )
+    )
+    
+    print(encrypted)
+    return encrypted

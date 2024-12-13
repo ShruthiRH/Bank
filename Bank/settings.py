@@ -15,6 +15,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+PRIVATE_KEY = "-----BEGIN RSA PRIVATE KEY-----\nMIICXAIBAAKBgHESw/RFlN9vW9p/uO/JPK7Hc37pqAlg2oHzw0SVTdKw+SuO9eSD\n0M+QwqFuCB8BbGK3Gi0gA1GZbkpfQgFxJbnHbY0+qLD/dLaG+ddzeDBqnJ5CKPNe\nMZQALIZzSLfIbZoVDxzT/mm93Nv5GQlFHiPNOb8Hu6nC0/kVbFFrg1hbAgMBAAEC\ngYAQu3gn04weLDppcPEK+rpyGq2qoCTvjleHV20T3wwvG2Uj3vngIOlrbb5/aOrm\nu60wRmwnNU+Iaa36b3IzCG1OiABpNzJyiUwOWy4475V/UVX5uE62Wl18jHHKXSIW\nk9cez1jvmcOUSg3Z6mDQVCsQN5X7KzXWuYRJcGYkNorLYQJBALit1SmLH3NQfwPn\n004gWmVpA9mGVVqpBsculs8pK+rCDOmQpwaJBo5aKZlb/n1nTUNQJDCtsd5X31Kz\nGv+YFBMCQQCcva5F6ArFJM6GK4NHpeUmew8TrXm3Mmt9I/rBn5SUMDTipPmcl7PP\n8vA+MduA08/eluiuKkSRJgVCIJ7iNGOZAkEAgHbLVL6l/fz8nabhYfM3bluChgnf\nzdTOFjfeR/SHzCF4AfDRfsZKfTNSxI8tk+YL5MsWoZXxqIzPmCNmoG0VaQJAHuUs\nks74QH/OzZeKGvdSQdGD2UcadMfVdCdBaCUCbmtKIVqPcRRd9yFVxYyiTbRyhteM\nKbhfJ5Us+Cnh54iYEQJBAIJ3kfLwSoonpZ3fqOGRcnFUQFOlVU/zgLAHNVR3D7be\nXXxEpzuzqFnLauJB+9KgXCrm9D4TfZGuzBH967zaDsw=\n-----END RSA PRIVATE KEY-----\n"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -77,9 +78,9 @@ WSGI_APPLICATION = 'Bank.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'bankk',  # Replace with your database name
+        'NAME': 'Bank',  # Replace with your database name
         'USER': 'postgres',       # Replace with your PostgreSQL username
-        'PASSWORD': '1234',   # Replace with your PostgreSQL password
+        'PASSWORD': 'root',   # Replace with your PostgreSQL password
         'HOST': '127.0.0.1',           # Set to 'localhost' if running locally
         'PORT': '5432',                # Default PostgreSQL port
     }
